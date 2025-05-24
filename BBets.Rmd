@@ -42,12 +42,38 @@ The function will be given a class_size by number of students, odds, and Number_
   
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
 
+### What I am going to do is to run the BrLw function  a 1000 different times, and each time I run it, I'm capturing the number that represents how much Brownlow will make. Then I will sort these numbers from low to high, and grab the lower two and a half percent.
+
+```{r}
+MyData= numeric(1000)
+for (i in 1:1000) {
+  MyData[i]=BrLw()
+}
+sMyData =sort(MyData)
+low=sMyData[25]
+high=sMyData[975]
+average=mean(sMyData)
+
+```
+
+## Effective Confidence interval `r low` to `r high`
 
 # What are the fair odds? Use manipulation of odds in the function to tune Brownlows earnings to zero. 
 
 
 <!--Decide on your methods:  In this section explain the approach you will take to attack the issue --- how will you decide on a likely estimate of professor Brownlow's earnings or losses after 637 bets. Also explain how you construct a 95% confidence interval about your estimate of his winnings !-->
 
+```{r}
+MyData2= numeric(1000)
+for (i in 1:1000) {
+  MyData2[i]=BrLw(odds=4.36)
+}
+sMyData2 =sort(MyData2)
+low=sMyData2[25]
+high=sMyData2[975]
+average=mean(sMyData2)
+
+```
 
 
 
